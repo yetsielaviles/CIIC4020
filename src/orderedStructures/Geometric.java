@@ -11,14 +11,14 @@ public class Geometric extends Progression {
 	
 	@Override
 	public double nextValue() {
-		if (this.firstValue() < 0) {
-			throw new IllegalStateException("nextValue: Invalid argument value = " + current);}
+		if (firstValueBoolean == false) {
+			throw new IllegalStateException("nextValue: Invalid argument value = " +firstValueBoolean);}
 		current = current * commonFactor; 
 		return current;
 	}
 	@Override
 	public String toString(){
-		return "Geom(3,2)";
+		return "Geom(" + (int)super.firstValue() + ", " + (int)this.commonFactor + ")";
 		
 	}
 	
@@ -29,5 +29,13 @@ public class Geometric extends Progression {
 
 		double value = this.firstValue()*Math.pow(commonFactor, n-1);
 		return value; 
+	}
+
+	@Override
+	public boolean Equals(Progression p) {
+		if(p.toString().equals(this.toString()))
+			return true;
+		else
+		return false;
 	}
 }

@@ -28,5 +28,18 @@ public class Fibonacci extends Progression {
 		prev = 0; 
 		return value; 
 	}
+	
+	@Override
+	public String toString(){
+		return "Fibon(" +(int)super.firstValue()+ ")";
+	}
+	
+	@Override
+	public boolean Equals(Progression p) {
+		if(p.toString().equals(this.toString()))
+			return true;
+		else
+		return false;
+	}
 
 }
